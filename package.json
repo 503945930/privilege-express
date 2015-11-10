@@ -1,0 +1,26 @@
+{
+  "name": "privilege-express",
+  "version": "1.0.0",
+  "description": "An express interface for the privilege module.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha && ./node_modules/.bin/istanbul report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scull7/privilege-express.git"
+  },
+  "keywords": [
+    "auth",
+    "authorization",
+    "express",
+    "privilege",
+    "role"
+  ],
+  "author": "Nathan A Sculli <scull7@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scull7/privilege-express/issues"
+  },
+  "homepage": "https://github.com/scull7/privilege-express#readme"
+}
