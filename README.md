@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/scull7/privilege-express.svg)](https://travis-ci.org/scull7/privilege-express)
+[![Coverage Status](https://coveralls.io/repos/scull7/privilege-express/badge.svg?branch=master&service=github)](https://coveralls.io/github/scull7/privilege-express?branch=master)
+
 # privilege-express
 An ExpressJS interface for the privilege module.
 
