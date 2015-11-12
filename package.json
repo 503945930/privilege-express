@@ -4,6 +4,7 @@
   "description": "An express interface for the privilege module.",
   "main": "dist/index.js",
   "scripts": {
+    "prepublish": "./node_modules/.bin/coffee -o dist -c src/*.coffee",
     "test": "mocha && ./node_modules/.bin/istanbul report"
   },
   "repository": {
