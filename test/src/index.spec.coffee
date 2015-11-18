@@ -69,6 +69,17 @@ describe 'Privilege Express', ->
       assert.equal err, null
       done()
 
+  it 'should allow access on a defined path to a role with a "*" privilege',
+  (done) ->
+    req  =
+      originalUrl: '/test/path/123'
+      method: 'POST'
+      user: root
+
+    privilege req, {}, (err) ->
+      assert.equal err, null
+      done()
+
 
   it 'should respond with an error if a url is not provided', (done) ->
 
