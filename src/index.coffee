@@ -1,4 +1,5 @@
 
+parseurl    = require 'parseurl'
 Privilege   = require 'privilege'
 createError = require 'http-errors'
 
@@ -20,7 +21,12 @@ module.exports  = (options) ->
 
   return (req, res, next) ->
 
-    privilege req, req.originalUrl, req.method, (err, is_allowed) ->
+    if not req.originalUrl and not req.url
+      return notAuthorized req, res, next
+
+    pathname  = parseurl.original(req).pathname
+
+    privilege req, pathname, req.method, (err, is_allowed) ->
       if err
         next(err)
       else if not is_allowed

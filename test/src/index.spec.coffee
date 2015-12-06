@@ -20,6 +20,7 @@ describe 'Privilege Express', ->
         '/test/path/:id': 'test:path'
         '/test/path/:id/action': 'test:path:action'
         '/test/other/path/:id': 'test:other:path'
+        '/test-thing/path/:id': 'test:thing:path'
       roleMap:
         'root':
           '*': [ 'get', 'post', 'put', 'delete' ]
@@ -27,6 +28,7 @@ describe 'Privilege Express', ->
           'test:path': [ 'get', 'post' ]
           'test:path:action': [ 'post', 'put' ]
           'test:other:path': [ 'post', 'delete' ]
+          'test:thing:path': [ 'get' ]
         'role-two':
           'test:path': [ 'get', 'post' ]
           'test:path:action': [ 'get', 'post', 'put' ]
@@ -69,17 +71,27 @@ describe 'Privilege Express', ->
       assert.equal err, null
       done()
 
-  it 'should allow access on a defined path to a role with a "*" privilege',
-  (done) ->
-    req  =
-      originalUrl: '/test/path/123'
+  it 'should ignore any URL parameters', (done) ->
+
+    req   =
+      originalUrl: '/test/path/123/action?some=param'
       method: 'POST'
-      user: root
+      user: user1
 
     privilege req, {}, (err) ->
       assert.equal err, null
       done()
 
+  it 'should allow urls with dashes', (done) ->
+
+    req   =
+      originalUrl: '/test-thing/path/123?some=param'
+      method: 'GET'
+      user: user1
+
+    privilege req, {}, (err) ->
+      assert.equal err, null
+      done()
 
   it 'should respond with an error if a url is not provided', (done) ->
 
