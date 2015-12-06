@@ -1,6 +1,6 @@
 {
   "name": "privilege-express",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An express interface for the privilege module.",
   "main": "dist/index.js",
   "scripts": {
